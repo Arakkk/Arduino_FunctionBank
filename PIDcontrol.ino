@@ -51,3 +51,10 @@ void PIDcontrol(float Kp, float Ki, float Kd, float Control_value, float Control
     digitalWrite(Direction_2,HIGH);
     analogWrite(PWM1,PWM1_Value);
   }
+  
+  // 今回の制御偏差を保存する
+  Control_error_pre = Control_error;
+
+  // duty比を計算する
+  PWM1_Ratio = (float)PWM1_Value / 255.0 * 100.0;
+}
